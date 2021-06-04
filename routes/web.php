@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RoomController;
+use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontend.pages.Homepage');
+    $rooms = Room::orderby('id','desc')->limit(8)->get();
+    return view('frontend.pages.Homepage',compact('rooms'));
 });
 Route::resource('room', RoomController::class);

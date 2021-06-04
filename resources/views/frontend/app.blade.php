@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap" rel="stylesheet">
     {{-- custom css stylesheet --}}
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
     
 </head>
 <body>
@@ -27,7 +27,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 logo">
-                        <a href="#">Roomrent</a>
+                        <a href="/">Roomrent</a>
                     </div>
                     <div class="col-md-4 right-menu">
                         <div class="row">
@@ -59,6 +59,8 @@
               </div>
             </div>
         </nav>
+        {{-- content --}}
+        @yield('content')
         {{-- carousel --}}
         @yield('carousel')
         {{-- searchbar --}}

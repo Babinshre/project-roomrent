@@ -121,20 +121,29 @@
         </div>
         <div class="availablePosts">
           <div class="row">
+            @foreach ($rooms as $room)
             <div class="col-md-3">
               <div class="card">
                 <img class="card-img-top" src="images/me.jpg" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Student Room</h5>
-                  <h6>price Rs: 5000</h6>
-                  <p class="card-text"><i class="fas fa-map-marker-alt"></i> Bhanuchowk ,dharan</p>
-                  <a href="#" class="btn btn-primary">see details..</a>
+                  <h5 class="card-title">for :  {{ $room->for }}</h5>
+                  <h6>price Rs: {{ $room->price }}</h6>
+                  <span>
+                    @if ($room->status=='available')
+                        <p style="color: rgb(1, 177, 1)">{{$room->status}}</p>
+                    @else
+                        <p style="color: red">{{$room->status}}</p>
+                    @endif
+                  </span>
+                  <p class="card-text"><i class="fas fa-map-marker-alt"></i>{{ $room->location }}</p> 
+                  <a href="room/{{$room->id}}" class="btn btn-primary">see details..</a>
                 </div>
               </div>
             </div>
+            @endforeach
           </div>
           <div class="findmore">
-            <a href="#" type="" class="btn">Find More  <i class="fas fa-arrow-right"></i></a>
+            <a href="room" type="" class="btn">Find More  <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>

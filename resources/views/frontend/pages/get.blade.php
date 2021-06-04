@@ -1,0 +1,2 @@
+@extends('frontend.app')
+fuck

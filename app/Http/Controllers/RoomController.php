@@ -15,7 +15,8 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        $rooms = Room::orderby('id','desc')->get();
+        return view('frontend.pages.index',compact('rooms'));
     }
 
     /**
@@ -60,7 +61,8 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        //
+        $room = Room::find($id);
+        return view('frontend.pages.show',compact('room'));
     }
 
     /**
