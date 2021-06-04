@@ -19,4 +19,16 @@ Route::get('/', function () {
     $rooms = Room::orderby('id','desc')->limit(8)->get();
     return view('frontend.pages.Homepage',compact('rooms'));
 });
+Route::get('/aboutus', function () {
+    return view('frontend.pages.aboutus');
+});
+Route::get('/blog', function () {
+    return view('frontend.pages.blog');
+});
+Route::get('/contactus', function () {
+    return view('frontend.pages.contactus');
+});
+Route::get('/gallary', function () {
+    return view('frontend.pages.gallary');
+});
 Route::resource('room', RoomController::class);

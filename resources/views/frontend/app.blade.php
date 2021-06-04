@@ -50,11 +50,11 @@
               </button>
               <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link" aria-current="page" href="#">Home</a>
-                  <a class="nav-link" href="#">About us</a>
-                  <a class="nav-link" href="#">Gallary</a>
-                  <a class="nav-link" href="#">Contact us</a>
-                  <a class="nav-link" href="#">New post</a>
+                  <a class="nav-link" aria-current="page" href="/">Home</a>
+                  <a class="nav-link" href="aboutus">About us</a>
+                  <a class="nav-link" href="gallary">Gallary</a>
+                  <a class="nav-link" href="contactus">Contact us</a>
+                  <a class="nav-link" href="#posts">New post</a>
                 </div>
               </div>
             </div>

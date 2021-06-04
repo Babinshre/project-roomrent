@@ -113,7 +113,7 @@
     </div>
 @endsection
 @section('availablePost')
-    <div class="posts">
+    <div class="posts" id="posts">
       <div class="container">
         <div class="titlehead">
           <h5>Available <span class="bor-botm">rooms</span> & flats</h5>
