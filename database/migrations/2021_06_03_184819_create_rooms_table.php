@@ -23,7 +23,7 @@ class CreateRoomsTable extends Migration
             $table->string('for');
             $table->longText('description');
             $table->string('image_feature');
-            $table->string('images');
+            $table->string('images')->nullable();
             $table->string('owner_phone');
             $table->string('owner_email');
             $table->string('status')->default('available');

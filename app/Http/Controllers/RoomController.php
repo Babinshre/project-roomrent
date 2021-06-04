@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -35,7 +36,20 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $room = new Room();
+        $room->location = $request->location;
+        $room->type = $request->type;
+        $room->price = $request->price;
+        $room->size = $request->size;
+        $room->for = $request->for;
+        $room->description = $request->description;
+        $room->image_feature = $request->image_feature;
+        $room->images = $request->images;
+        $room->owner_email = $request->owner_email;
+        $room->owner_phone = $request->owner_phone;
+        $room->status = $request->status;
+        $room->save();
+        return redirect()->back();
     }
 
     /**
