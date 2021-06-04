@@ -7,7 +7,7 @@
             @foreach ($rooms as $room)
             <div class="col-md-3">
               <div class="card">
-                <img class="card-img-top" src="images/me.jpg" alt="Card image cap">
+                <img class="card-img-top" src="{{ $room->image_feature }}" alt="Card image cap" style="height: 180px">
                 <div class="card-body">
                   <h5 class="card-title">for :  {{ $room->for }}</h5>
                   <h6>price Rs: {{ $room->price }}</h6>

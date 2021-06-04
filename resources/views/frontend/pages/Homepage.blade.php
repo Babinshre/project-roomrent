@@ -2,17 +2,12 @@
 @section('carousel')
     <div class="carousel">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          {{-- <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol> --}}
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img class="d-block w-100" src="images/slide 1.jpeg" alt="First slide">
               <div class="carousel-caption d-none d-md-block">
                   <p class="topp">" Good service is our passion "</p>
-                  <h5>FIND <span style="color: #FFD300">ROOM <span class="bor-bot">IN YOUR</span></span> LOCATION</h5>
+                  <h5 id="fade">FIND <span style="color: #FFD300">ROOM <span class="bor-bot">IN YOUR</span></span> LOCATION</h5>
                   <p class="bottomp mt-5">No matter what the weather, no matter the situation we are in</p>
                   <a href="#search" class="btn">Find Now</a>
                 </div>
@@ -124,7 +119,7 @@
             @foreach ($rooms as $room)
             <div class="col-md-3">
               <div class="card">
-                <img class="card-img-top" src="images/me.jpg" alt="Card image cap">
+                <img class="card-img-top" src="{{ $room->image_feature }}" alt="Card image cap" style="height: 180px">
                 <div class="card-body">
                   <h5 class="card-title">for :  {{ $room->for }}</h5>
                   <h6>price Rs: {{ $room->price }}</h6>

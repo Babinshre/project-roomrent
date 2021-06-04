@@ -44,11 +44,17 @@ class RoomController extends Controller
         $room->size = $request->size;
         $room->for = $request->for;
         $room->description = $request->description;
-        $room->image_feature = $request->image_feature;
         $room->images = $request->images;
         $room->owner_email = $request->owner_email;
         $room->owner_phone = $request->owner_phone;
         $room->status = $request->status;
+        // for feature-image
+        if($request->hasFile('image_feature')){
+            $file = $request->file('image_feature');
+            $newName = time().$file->getClientOriginalName();
+            $file->move('images/',$newName);
+            $room->image_feature = 'images/'.$newName;
+        }
         $room->save();
         return redirect()->back();
     }

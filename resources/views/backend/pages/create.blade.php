@@ -26,7 +26,7 @@
     <div class="container mt-5">
         <div class="form">
             <h3>Create new Post</h3>
-            <form action="/room" method="POST">
+            <form action="/room" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                   <label for="location">Location</label>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group">
                     <label for="images">Images</label>
-                    <input type="file" class="form-control-file" name="Images" id="Images" placeholder="" aria-describedby="fileHelpId">
+                    <input multiple type="file" class="form-control-file" name="Images" id="Images" placeholder="" aria-describedby="fileHelpId">
                 </div>
                 <div class="form-group">
                   <label for="owner_email">Email</label>
