@@ -32,3 +32,5 @@ Route::get('/gallary', function () {
     return view('frontend.pages.gallary');
 });
 Route::resource('room', RoomController::class);
+
+Route::get('search',[RoomController::class,'search']);

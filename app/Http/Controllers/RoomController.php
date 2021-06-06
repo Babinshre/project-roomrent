@@ -94,6 +94,21 @@ class RoomController extends Controller
         //
     }
 
+    public function search(Request $request)
+    {
+        $location = $_GET['location'];
+        $type = $_GET['type'];
+        $min_price = $_GET['min_price'];
+        $max_price = $_GET['max_price'];
+        $for = $_GET['for'];
+        $rooms = Room::where('location',$location)
+                    ->where('type',$type)
+                    ->where('price','>=',$min_price)
+                    ->where('price','<=',$max_price)
+                    ->where('for',$for)->get();
+                    return view('frontend.searchPost',compact('rooms'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *

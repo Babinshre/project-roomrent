@@ -48,8 +48,9 @@
             <p>Search your room</p>
           </div>
           <div class="form" action>
-            <form action="#" method="post">
+            <form action="/search" method="get">
               @csrf
+             
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-3">
