@@ -34,7 +34,7 @@
                                 <a href="#"><i class="fas fa-phone-square-alt"></i> callus: 9860175748</a>
                             </div>
                             <div class="col">
-                                <a href="#"><i class="fas fa-user-alt"></i> Login/Register</a>
+                                <a href="/login"><i class="fas fa-user-alt"></i> Login/Register</a>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\backend\PostController;
 use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 Route::get('/', function () {
     $rooms = Room::orderby('id','desc')->limit(8)->get();
     return view('frontend.pages.Homepage',compact('rooms'));
@@ -32,5 +35,13 @@ Route::get('/gallary', function () {
     return view('frontend.pages.gallary');
 });
 Route::resource('room', RoomController::class);
+Route::resource('post', PostController::class);
 
 Route::get('search',[RoomController::class,'search']);
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
