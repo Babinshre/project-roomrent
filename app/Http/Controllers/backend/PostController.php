@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+        $posts = Room::all();
+        return view('backend.pages.index',compact('posts'));
     }
 
     /**
@@ -35,7 +37,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Room();
+        $post->location = $request->location;
+        $post->type = $request->type;
+        $post->price = $request->price;
+        $post->size = $request->size;
+        $post->for = $request->for;
+        $post->description = $request->description;
+        $post->images = $request->images;
+        $post->owner_email = $request->owner_email;
+        $post->owner_phone = $request->owner_phone;
+        $post->status = $request->status;
+        // for feature-image
+        if($request->hasFile('image_feature')){
+            $file = $request->file('image_feature');
+            $newName = time().$file->getClientOriginalName();
+            $file->move('images/',$newName);
+            $post->image_feature = 'images/'.$newName;
+        }
+        $post->save();
+        return redirect()->back();
     }
 
     /**
@@ -46,7 +67,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Room::find($id);
+        return view('backend.pages.show',compact('post'));
     }
 
     /**
@@ -55,9 +77,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $post = Room::find($id);
+        return view('backend.pages.edit',compact('post'));
     }
 
     /**
@@ -69,7 +91,26 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Room::find($id);
+        $post->location = $request->location;
+        $post->type = $request->type;
+        $post->price = $request->price;
+        $post->size = $request->size;
+        $post->for = $request->for;
+        $post->description = $request->description;
+        $post->images = $request->images;
+        $post->owner_email = $request->owner_email;
+        $post->owner_phone = $request->owner_phone;
+        $post->status = $request->status;
+        // for feature-image
+        if($request->hasFile('image_feature')){
+            $file = $request->file('image_feature');
+            $newName = time().$file->getClientOriginalName();
+            $file->move('images/',$newName);
+            $post->image_feature = 'images/'.$newName;
+        }
+        $post->update();
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +121,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Room::find($id);
+        $post->delete();
+        return redirect()->back();
     }
 }

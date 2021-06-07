@@ -13,6 +13,7 @@
               <div class="form-group">
                 <label for="type">Type</label>
                 <select class="form-control" name="type" id="type">
+                  <option value="null">...</option>
                   <option value="room">room</option>
                   <option value="flat">flat</option>
                 </select>
@@ -28,6 +29,7 @@
               <div class="form-group">
                   <label for="for">For</label>
                   <select class="form-control" name="for" id="for">
+                    <option value="null">...</option>
                     <option value="student">student</option>
                     <option value="family">family</option>
                     <option value="others">others</option>

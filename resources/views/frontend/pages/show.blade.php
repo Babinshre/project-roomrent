@@ -23,7 +23,11 @@
                     <p><i class="fa fa-toggle-on"></i>Status : 
                         @if ($room->status=='available')
                             <span style="color: rgb(1, 177, 1)">{{$room->status}}</span>
-                            <a href="#" data-toggle="modal" data-target="#myModal" class="d-block btn btn-primary btn-sm">Book now</a>
+                        @else
+                            <span style="color: red">{{$room->status}}</span>
+                        @endif
+                    </p>
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="d-block btn btn-primary btn-sm">Book now</a>
                             {{-- popup message --}}
                             <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog">
@@ -44,10 +48,6 @@
                                   
                                 </div>
                               </div>
-                        @else
-                            <span style="color: red">{{$room->status}}</span>
-                        @endif
-                    </p>
                 </div> 
             </div>
         </div>
