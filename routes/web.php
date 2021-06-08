@@ -3,6 +3,7 @@
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\backend\PostController;
 use App\Models\Room;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,14 +35,18 @@ Route::get('/contactus', function () {
 Route::get('/gallary', function () {
     return view('frontend.pages.gallary');
 });
-Route::resource('room', RoomController::class);
-Route::resource('post', PostController::class);
 
-Route::get('search',[RoomController::class,'search']);
+
+
 
 
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware'=>['protectedPage']],function(){
+    Route::get('search',[RoomController::class,'search']); 
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('room', RoomController::class);
+    Route::resource('post', PostController::class);
+});

@@ -33,13 +33,39 @@
                             <div class="col">   
                                 <a href="#"><i class="fas fa-phone-square-alt"></i> callus: 9860175748</a>
                             </div>
+                            @if ( Auth::user() )
+                              <div class="col">
+                                <div class="dropdown">
+                                  <a id="Dropdown" class="dropdown-toggle" href="#" role="button" 
+                                  style="font-size: "
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user-alt"></i>  
+                                    {{ Auth::user()->name }}
+                                  </a>
+                    
+                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Dropdown">
+                                      <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                      document.getElementById('logout-form').submit();">
+                                          {{ __('Logout') }}
+                                      </a>
+                    
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                          @csrf
+                                      </form>
+                                  </div>
+                              </div>
+                            
+                            @else
                             <div class="col">
-                                <a href="/login"><i class="fas fa-user-alt"></i> Login/Register</a>
+                              <a href="/login"><i class="fas fa-user-alt"></i> Login/Register</a>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         {{-- navbar --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-lignt">
