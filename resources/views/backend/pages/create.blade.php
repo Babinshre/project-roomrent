@@ -1,5 +1,7 @@
 @extends('backend.app')
-
+@section('location')
+ Post create  
+@endsection
 @section('content')
     <div class="container p-5">
       <div class="form">

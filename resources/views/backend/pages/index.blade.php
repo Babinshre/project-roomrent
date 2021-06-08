@@ -1,4 +1,7 @@
 @extends('backend.app')
+@section('location')
+ Post   
+@endsection
 @section('content')
     <div class="container">
         <table class="table table-bordered">
