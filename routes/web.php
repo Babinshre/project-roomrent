@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\backend\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Room;
 use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,7 +48,10 @@ Auth::routes();
 
 Route::group(['middleware'=>['protectedPage']],function(){
     Route::get('search',[RoomController::class,'search']); 
+    Route::get('/profile',[ProfileController::class,'index'])->name('profile'); 
+    Route::put('/profile-update',[ProfileController::class,'update'])->name('profile-update'); 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('room', RoomController::class);
     Route::resource('post', PostController::class);
+
 });

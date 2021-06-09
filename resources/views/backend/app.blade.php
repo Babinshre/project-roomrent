@@ -77,7 +77,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{ asset(Auth::user()->image) }}" class="" style="border-radius: 50%" alt="User Image">
           </div>
           <div class="info">
             <a href="/profile" class="d-block">{{ Auth::user()->name }}</a>
@@ -97,53 +97,57 @@
         </div>
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-house-user"></i>
-                <p>
-                  Posts
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/post/create" class="nav-link">
-                    <i class="fas fa-plus-square"></i>
-                    <p>Create Post</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/post" class="nav-link">
-                    <i class="fas fa-clipboard"></i>
-                    <p>Your Post</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item dropdown">
-              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{ Auth::user()->name }}
-              </a>
-
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                     onclick="event.preventDefault();
-                                   document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
-                  </a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
-              </div>
+     
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+              with font-awesome or any other icon font library -->
+            @if (Auth()->user()->is_admin==1)
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-house-user"></i>
+              <p>
+                Posts
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/post/create" class="nav-link">
+                  <i class="fas fa-plus-square"></i>
+                  <p>Create Post</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/post" class="nav-link">
+                  <i class="fas fa-clipboard"></i>
+                  <p>Your Post</p>
+                </a>
+              </li>
+            </ul>
           </li>
-          </ul>
-        </nav>
+          @else
+          @endif
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ Auth::user()->name }}
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+        </ul>
+      </nav>
+
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
@@ -174,6 +178,8 @@
       <!-- Main content -->
       @yield('login')
       @yield('content')
+      {{-- @if (Auth()->user()->is_admin==1)
+      @endif --}}
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

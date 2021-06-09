@@ -31,7 +31,7 @@
                     <div class="col-md-4 right-menu">
                         <div class="row">
                             <div class="col">   
-                                <a href="#"><i class="fas fa-phone-square-alt"></i> callus: 9860175748</a>
+                                <a href="tel:9860175748"><i class="fas fa-phone-square-alt"></i> callus: 9860175748</a>
                             </div>
                             @if ( Auth::user() )
                               <div class="col">
