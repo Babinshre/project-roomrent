@@ -18,9 +18,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($posts as $post)
+                @foreach ($posts as $key=>$post)
                 <tr>
-                    <td scope="row">{{ $post->id }}</td>
+                    <td scope="row">{{ ++$key }}</td>
                     <td>{{ $post->location }}</td>
                     <td>{{ $post->type }}</td>
                     <td>{{ $post->for }}</td>

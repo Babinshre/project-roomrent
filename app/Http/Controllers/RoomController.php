@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoomController extends Controller
 {
@@ -55,6 +56,7 @@ class RoomController extends Controller
             $file->move('images/',$newName);
             $room->image_feature = 'images/'.$newName;
         }
+        $room->user_id = $request->user()->id;
         $room->save();
         return redirect()->back();
     }

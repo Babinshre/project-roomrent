@@ -27,6 +27,7 @@ class CreateRoomsTable extends Migration
             $table->string('owner_phone');
             $table->string('owner_email');
             $table->string('status')->default('available');
+            $table->foreignId('user_id');
         });
     }
 

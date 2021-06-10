@@ -13,6 +13,8 @@
                     <p><i class="fa fa-map-marker-alt"></i>Location : {{ $post->location }}</p>
                     <p><i class="fas fa-share-square"></i>For : {{ $post->for }}</p>
                     <p><i class="fa fa-phone-alt"></i>Owner phone : {{ $post->owner_phone }}</p>
+                    {{-- use of relation btn room and user--}}
+                    <p><i class="fas fa-user-alt"></i>Owner : {{ $post->user->name }}</p> 
                     <p><i class="fa fa-envelope"></i>owner_email : {{ $post->owner_email }}</p>
                     <p><i class="fa fa-hand-holding-usd"></i>Price (npr.) : {{ $post->price }}</p>
                     <p><i class="fa fa-house-user"></i>Type : {{ $post->type }}</p>
