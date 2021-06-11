@@ -50,5 +50,6 @@ Route::group(['middleware'=>['protectedPage']],function(){
     Route::resource('room', RoomController::class);
     Route::resource('post', PostController::class);
     Route::POST('/post-comment/{id}',[CommentController::class,'store'])->name('post-comment');
-
 });
+Route::POST('/contact-us/send', [App\Http\Controllers\SendEmailController::class, 'send'])->name('contactus');
+

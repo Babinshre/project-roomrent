@@ -123,7 +123,7 @@
                       <a href="#"><i class="fas fa-angle-right"></i> About us</a>
                     </li>
                     <li>
-                      <a href="#"><i class="fas fa-angle-right"></i> Send us a message</a>
+                      <a href="mailto:babinshrestha5748@gmail.com"><i class="fas fa-angle-right"></i> Send us a message</a>
                     </li>
                     <li>
                       <a href="#"><i class="fas fa-angle-right"></i> FAQ</a>
