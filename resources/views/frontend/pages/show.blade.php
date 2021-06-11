@@ -3,16 +3,12 @@
     <div class="container">
         <h3 class="mt-5 mb-2">Room details</h3>
         <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset('images/room.jpg') }}" alt="Card image cap">
-                </div>
-            </div>
             <div class="col-md-6">
                 <div class="card p-5">
                     <p><i class="fa fa-map-marker-alt"></i>Location : {{ $room->location }}</p>
                     <p><i class="fas fa-share-square"></i>For : {{ $room->for }}</p>
                     <p><i class="fa fa-phone-alt"></i>Owner phone : {{ $room->owner_phone }}</p>
+                    <p><i class="fas fa-user-alt"></i>Owner : {{ $room->user->name }}</p> 
                     <p><i class="fa fa-envelope"></i>owner_email : {{ $room->owner_email }}</p>
                     <p><i class="fa fa-hand-holding-usd"></i>Price (npr.) : {{ $room->price }}</p>
                     <p><i class="fa fa-house-user"></i>Type : {{ $room->type }}</p>
@@ -49,6 +45,43 @@
                                 </div>
                               </div>
                 </div> 
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{ asset('images/room.jpg') }}" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div class="comment mt-4">    
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>comments :</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                            @foreach ($comments as $comment)
+                            <p><i class="fas fa-user-alt"></i><span  style="color: rgb(27, 130, 248); font-size: 12px"> {{ $comment->user->name }} </span> :{{ $comment->comment }}</p>
+                            
+                        @endforeach
+                          </li>
+                        </ul>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <form action="/post-comment/{{$room->id}}" method="POST">
+                    @csrf
+                    <h5>Add comment</h5>
+                    <div class="form-group">
+                      <label for="comment"></label>
+                      <input type="text" name="comment" id="comment" class="form-control" placeholder="Add comment" aria-describedby="helpId">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Comment</button>
+                </form>
             </div>
         </div>
     </div>

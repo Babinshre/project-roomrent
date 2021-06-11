@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\backend\PostController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Room;
 use GuzzleHttp\Middleware;
@@ -39,11 +40,6 @@ Route::get('/gallary', function () {
 });
 
 
-
-
-
-
-
 Auth::routes();
 
 Route::group(['middleware'=>['protectedPage']],function(){
@@ -53,5 +49,6 @@ Route::group(['middleware'=>['protectedPage']],function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('room', RoomController::class);
     Route::resource('post', PostController::class);
+    Route::POST('/post-comment/{id}',[CommentController::class,'store'])->name('post-comment');
 
 });

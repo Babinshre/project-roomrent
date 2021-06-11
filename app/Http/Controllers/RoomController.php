@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Room;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RoomController extends Controller
 {
@@ -69,8 +72,9 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        $room = Room::find($id);
-        return view('frontend.pages.show',compact('room'));
+            $comments = Comment::where('post_id',$id)->get();
+            $room = Room::find($id);
+            return view('frontend.pages.show',compact('room','comments'));
     }
 
     /**
