@@ -17,10 +17,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&display=swap" rel="stylesheet">
     {{-- custom css stylesheet --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">        
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">      
+    <style>
+      .topPage{
+        text-align: center;
+        position: fixed;
+        left: 50px;
+        bottom: 8%;
+        padding: 5px 3px;
+        background: rgb(255, 199, 17);
+        z-index: 1;
+        border-radius: 10px;
+        margin: 0;
+      }  
+      .bor{
+        border: 1px solid red;
+      }
+    </style>  
 </head>
 <body>
     <div class="roomrent-body">
+      <div class="topPage">
+        <a href="#"><i class="fas fa-arrow-circle-up"><span style="display: block">Top</span></i></a>
+      </div>
         {{-- topnavbar --}}
         <div class="top-navbar">
             <div class="container">
@@ -79,7 +98,7 @@
                   <a class="nav-link" href="aboutus">About us</a>
                   <a class="nav-link" href="gallary">Gallary</a>
                   <a class="nav-link" href="contactus">Contact us</a>
-                  <a class="nav-link" href="#posts">New post</a>
+                  <a class="nav-link" href="/#posts">New post<span style="color: rgb(255, 251, 0); font-weight: bold"> *</span></a>
                 </div>
               </div>
             </div>

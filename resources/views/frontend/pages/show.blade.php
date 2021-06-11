@@ -57,12 +57,15 @@
                 <div class="comment mt-4">    
                     <div class="card">
                         <div class="card-header">
-                            <h5>comments :</h5>
+                            comments :
                         </div>
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item">
                             @foreach ($comments as $comment)
-                            <p><i class="fas fa-user-alt"></i><span  style="color: rgb(27, 130, 248); font-size: 12px"> {{ $comment->user->name }} </span> :{{ $comment->comment }}</p>
+                            <p>
+                                <img src="{{ asset($comment->user->image) }}" class="" style="border-radius: 50%" height="20px" width="20px" alt="User Image">
+                                <span  style="color: rgb(27, 130, 248); font-size: 12px"> {{ $comment->user->name }} </span> <p class="ml-3">{{ $comment->comment }}</p>
+                            </p>
                             
                         @endforeach
                           </li>
