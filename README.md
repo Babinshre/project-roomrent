@@ -1,6 +1,12 @@
 <<<<<<< HEAD
 # project-roomrent
-=======
+========================
+A roomrent is a project made by group of college student for a college project
+
+front look 
+
+![repository-open-graph-template](https://user-images.githubusercontent.com/77711338/126743139-18a742b4-bbf9-42c9-86fb-de8933546df3.png)
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
