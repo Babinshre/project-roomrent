@@ -19,7 +19,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms = Room::orderby('id','desc')->get();
+        $rooms = Room::orderby('id','desc')->paginate(8);
         return view('frontend.pages.index',compact('rooms'));
     }
 
@@ -61,6 +61,7 @@ class RoomController extends Controller
         }
         $room->user_id = $request->user()->id;
         $room->save();
+         session()->flash('success','Category created successfully');
         return redirect()->back();
     }
 
@@ -106,6 +107,11 @@ class RoomController extends Controller
         $type = $_GET['type'];
         $min_price = $_GET['min_price'];
         $max_price = $_GET['max_price'];
+        if($min_price==null AND $max_price==null) {
+            $min_price = Room::min('Price');
+            $max_price = Room::max('Price');
+        }
+        
         $for = $_GET['for'];
         $rooms = Room::where('location',$location)
                     ->where('type',$type)

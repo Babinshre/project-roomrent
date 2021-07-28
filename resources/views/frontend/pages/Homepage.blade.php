@@ -122,15 +122,14 @@
               <div class="card">
                 <img class="card-img-top" src="{{ $room->image_feature }}" alt="Card image cap" style="height: 180px">
                 <div class="card-body">
-                  <h5 class="card-title">for :  {{ $room->for }}</h5>
-                  <h6>price Rs: {{ $room->price }}</h6>
-                  <span>
-                    @if ($room->status=='available')
-                        <p style="color: rgb(1, 177, 1)">{{$room->status}}</p>
-                    @else
-                        <p style="color: red">{{$room->status}}</p>
-                    @endif
-                  </span>
+                  <div class="">
+                    <span class="card-title" style="font-weight: bold; text-transform:capitalize;">for :  {{ $room->for }}</span>
+                    <span class=" {{ $room->status == 'available' ? 'badge badge-success badge-sm' : 'badge badge-danger badge-sm' }} " style="float:right">
+                      {{ $room->status == 'available' ? 'Available' : 'Not available' }}
+                    </span>
+                  </div>
+                  <h6 class="mt-2">price Rs: {{ $room->price }}</h6>
+
                   <p class="card-text"><i class="fas fa-map-marker-alt"></i>{{ $room->location }}</p> 
                   <a href="room/{{$room->id}}" class="btn btn-primary">see details..</a>
                 </div>
@@ -139,7 +138,7 @@
             @endforeach
           </div>
           <div class="findmore">
-            <a href="room" type="" class="btn">Find More  <i class="fas fa-arrow-right"></i></a>
+            <a href="/room" type="" class="btn">Find More  <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>

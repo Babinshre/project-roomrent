@@ -22,8 +22,8 @@
       .topPage{
         text-align: center;
         position: fixed;
-        left: 50px;
-        bottom: 8%;
+        right: 50px;
+        bottom: 5%;
         padding: 5px 3px;
         background: rgb(255, 199, 17);
         z-index: 1;
@@ -63,15 +63,20 @@
                                   </a>
                     
                                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Dropdown">
-                                      <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                      document.getElementById('logout-form').submit();">
-                                          {{ __('Logout') }}
-                                      </a>
-                    
-                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                          @csrf
-                                      </form>
+                                        <ul class="li">
+                                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                          document.getElementById('logout-form').submit();">
+                                              {{ __('Logout') }}
+                                          </a>
+                        
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                              @csrf
+                                          </form>
+                                        </ul>
+                                        <ul class="li">
+                                          <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                        </ul>
                                   </div>
                               </div>
                             
@@ -95,9 +100,9 @@
               <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                   <a class="nav-link" aria-current="page" href="/">Home</a>
-                  <a class="nav-link" href="aboutus">About us</a>
-                  <a class="nav-link" href="gallary">Gallary</a>
-                  <a class="nav-link" href="contactus">Contact us</a>
+                  <a class="nav-link" href="/aboutus">About us</a>
+                  <a class="nav-link" href="/gallary">Gallary</a>
+                  <a class="nav-link" href="/contactus">Contact us</a>
                   <a class="nav-link" href="/#posts">New post<span style="color: rgb(255, 251, 0); font-weight: bold"> *</span></a>
                 </div>
               </div>

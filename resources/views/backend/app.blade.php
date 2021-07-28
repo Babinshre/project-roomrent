@@ -35,6 +35,7 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -52,10 +53,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="/home" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">Contact</a>
+          <a href="/" class="nav-link">Website</a>
         </li>
       </ul>
 
@@ -76,12 +74,12 @@
       <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
-            <img src="{{ asset(Auth::user()->image) }}" class="" style="border-radius: 50%" alt="User Image">
-          </div>
-          <div class="info">
-            <a href="/profile" class="d-block">{{ Auth::user()->name }}</a>
-          </div>
+          <img src="{{ asset(Auth::user()->image) }}" class="" style="border-radius:50%"  alt="User Image">
+          {{-- <div class="image">
+          </div> --}}
+          <a href="/profile" class="d-block">{{ Auth::user()->name }}</a>
+          {{-- <div class="info">
+          </div> --}}
         </div>
 
         <!-- SidebarSearch Form -->
@@ -175,7 +173,19 @@
       <!-- /.content-header -->
 
       <!-- Main content -->
-      @yield('login')
+      {{-- @yield('login') --}}
+      <div class="session container">
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+                <span style="float: right"><i class="fa fa-check"></i></span>
+            </div>
+        @elseif(session()->has('success'))
+            <div class="alert alert-danger">
+                {{ session()->get('danger') }}
+            </div>
+        @endif
+      </div>
       @yield('content')
       {{-- @if (Auth()->user()->is_admin==1)
       @endif --}}

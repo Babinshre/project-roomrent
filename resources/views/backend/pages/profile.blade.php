@@ -53,7 +53,7 @@ input:focus {
                             <label class="col-sm-2" for="address">Address :</label>
                             <input value="{{ Auth::user()->address }}" type="text" name="address" id="address" class="form-control col-sm-6" placeholder="" aria-describedby="helpId">
                         </div>
-                        <button type="submit" class="btn btn-primary btn">Submit</button>
+                        <button type="submit" class="btn btn-primary btn">Update</button>
                     </form>
                 </div>
             </div>

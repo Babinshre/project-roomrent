@@ -152,7 +152,7 @@ a:hover{
     color: #C2C1C1;
     font-size: 15px;
     padding: 5px;
-    border-bottom: 2px solid #C2C1C1;
+    /* border-bottom: 2px solid #C2C1C1; */
 }
 .availablePosts .findmore{
     margin-top: 80px;

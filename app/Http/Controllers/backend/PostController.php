@@ -57,8 +57,11 @@ class PostController extends Controller
             $file->move('images/',$newName);
             $post->image_feature = 'images/'.$newName;
         }
+        $post->user_id = $request->user()->id;
         $post->save();
+        session()->flash('success','Category created successfully');
         return redirect()->back();
+
     }
 
     /**
@@ -112,7 +115,8 @@ class PostController extends Controller
             $post->image_feature = 'images/'.$newName;
         }
         $post->update();
-        return redirect()->back();
+        session()->flash('success','Post updated successfully');
+        return redirect(route('post.index') );
     }
 
     /**
@@ -125,6 +129,7 @@ class PostController extends Controller
     {
         $post = Room::find($id);
         $post->delete();
+        session()->flash('danger','Post deleted successfully');
         return redirect()->back();
     }
 }

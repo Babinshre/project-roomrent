@@ -6,7 +6,7 @@
     <div class="container p-5">
       <div class="form">
           <h3>Create new Post</h3>
-          <form action="/room" method="POST" enctype="multipart/form-data">
+          <form action="/post" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label for="location">Location</label>
@@ -15,7 +15,7 @@
               <div class="form-group">
                 <label for="type">Type</label>
                 <select class="form-control" name="type" id="type">
-                  <option value="null">...</option>
+                  <option value="null">Choose..</option>
                   <option value="room">room</option>
                   <option value="flat">flat</option>
                 </select>
@@ -31,7 +31,7 @@
               <div class="form-group">
                   <label for="for">For</label>
                   <select class="form-control" name="for" id="for">
-                    <option value="null">...</option>
+                    <option value="null">Choose..</option>
                     <option value="student">student</option>
                     <option value="family">family</option>
                     <option value="others">others</option>

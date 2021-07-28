@@ -61,7 +61,8 @@
               </div>
               <div class="form-group">
                 <label for="image_feature">Image_feature</label>
-                <input value="{{ $post->image_feature }}" type="file" class="form-control-file" name="image_feature" id="image_feature" placeholder="" aria-describedby="fileHelpId">
+                <img src="{{ asset($post->image_feature) }}" width="50px" height="50px" alt="" srcset="">
+                <input  value="{{ $post->image_feature }}" type="file" class="form-control-file" name="image_feature" id="image_feature" placeholder="" aria-describedby="fileHelpId">
               </div>
               <div class="form-group">
                   <label for="images">Images</label>

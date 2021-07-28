@@ -47,7 +47,7 @@ Route::group(['middleware'=>['protectedPage']],function(){
     Route::get('/profile',[ProfileController::class,'index'])->name('profile'); 
     Route::put('/profile-update',[ProfileController::class,'update'])->name('profile-update'); 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resource('room', RoomController::class);
+    Route::resource('room', RoomController::class); //for frontend
     Route::resource('post', PostController::class);
     Route::POST('/post-comment/{id}',[CommentController::class,'store'])->name('post-comment');
 });
