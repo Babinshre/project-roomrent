@@ -45,7 +45,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 logo">
-                        <a href="/"><img src="{{asset('images/logoRR.png')}}" height="60px" alt=""></a>
+                        {{-- <a href="/"><img src="{{asset('images/logoRR.png')}}" height="60px" alt=""></a> --}}
+                        <a href="/">RoomRent</a>
                     </div>
                     <div class="col-md-4 right-menu">
                         <div class="row">
