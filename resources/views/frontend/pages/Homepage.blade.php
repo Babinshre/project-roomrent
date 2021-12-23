@@ -120,7 +120,7 @@
             @foreach ($rooms as $room)
             <div class="col-md-3">
               <div class="card">
-                <img class="card-img-top" src="{{ secure_asset('/images/'.$room->image_feature)  }}" alt="Card image cap" style="height: 180px">
+                <img class="card-img-top" src="{{ secure_asset('public/images/'.$room->image_feature)  }}" alt="Card image cap" style="height: 180px">
                 <div class="card-body">
                   <div class="">
                     <span class="card-title" style="font-weight: bold; text-transform:capitalize;">for :  {{ $room->for }}</span>
