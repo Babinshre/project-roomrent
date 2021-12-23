@@ -33,6 +33,17 @@
       .bor{
         border: 1px solid red;
       }
+      @media screen and (max-width: 640px) {
+      #bignav{
+        display: none
+      } 
+      
+      }
+      @media screen and (min-width: 641px) {
+        #smallnav{
+        display: none
+      } 
+      }
     </style>  
 </head>
 <body>
@@ -41,7 +52,7 @@
         <a href="#"><i class="fas fa-arrow-circle-up"><span style="display: block">Top</span></i></a>
       </div>
         {{-- topnavbar --}}
-        <div class="top-navbar">
+        <div class="top-navbar" id="bignav">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 logo">
@@ -90,7 +101,58 @@
                     </div>
                 </div>
             </div>
+          </div>
         </div>
+        <div class="top-navbar" id="smallnav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 logo">
+                        {{-- <a href="/"><img src="{{asset('images/logoRR.png')}}" height="60px" alt=""></a> --}}
+                        <a href="/">RoomRent</a>
+                    </div>
+                    <div class="col-4 right-menu">
+                        <div class="row">
+                            <div style="display: inline" class="col">   
+                                <a href="tel:9860175748"><i class="fas fa-phone-square-alt"></i></a>
+                            </div>
+                            @if ( Auth::user() )
+                              <div class="col">
+                                <div class="dropdown">
+                                  <a id="Dropdown" class="dropdown-toggle" href="#" role="button" 
+                                  style="font-size: "
+                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user-alt"></i>  
+                                    {{-- {{ Auth::user()->name }} --}}
+                                  </a>
+                    
+                                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="Dropdown">
+                                        <ul class="li">
+                                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                          document.getElementById('logout-form').submit();">
+                                              {{ __('Logout') }}
+                                          </a>
+                        
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                              @csrf
+                                          </form>
+                                        </ul>
+                                        <ul class="li">
+                                          <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                                        </ul>
+                                  </div>
+                              </div>
+                            
+                            @else
+                            <div class="col">
+                              <a href="/login"><i class="fas fa-user-alt"></i></a>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
         </div>
         {{-- navbar --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-lignt">
