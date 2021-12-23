@@ -95,17 +95,17 @@
         {{-- navbar --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-lignt">
             <div class="container">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-link" aria-current="page" href="/">Home</a>
-                  <a class="nav-link" href="/aboutus">About us</a>
-                  <a class="nav-link" href="/gallary">Gallary</a>
-                  <a class="nav-link" href="/contactus">Contact us</a>
-                  <a class="nav-link" href="/#posts">New post<span style="color: rgb(255, 251, 0); font-weight: bold"> *</span></a>
-                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/aboutus">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/gallary">Gallary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contactus">Contact us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/#posts">New post<span style="color: rgb(255, 251, 0); font-weight: bold"> *</span></a></li>
+                </ul>
               </div>
             </div>
         </nav>
